@@ -1,9 +1,11 @@
 /* eslint-disable react/jsx-no-undef */
 import { useState, useEffect } from "react";
 import { Box, Stack, Typography } from "@mui/material";
-import Sidebar from "./Sidebar";
 
-const Feed = () => {
+import { fetchFromAPI } from "../utils/fetchFromAPI";
+import { Videos, Sidebar } from "./";
+
+function Feed() {
   return (
     <Stack sx={{ flexDirection: { sx: "column", md: "row" } }}>
       <Box
@@ -23,8 +25,20 @@ const Feed = () => {
           Copyright 2022 JSM Media
         </Typography>
       </Box>
+
+      <Box p={2} sx={{ overflowY: "auto", height: "90vh", flex: 2 }}>
+        <Typography
+          variant="h4"
+          fontWeight="bold"
+          mb={2}
+          sx={{ color: "white" }}
+        >
+          New <span style={{ color: "#F31503" }}>Videos</span>
+        </Typography>
+        <Videos />
+      </Box>
     </Stack>
   );
-};
+}
 
 export default Feed;
